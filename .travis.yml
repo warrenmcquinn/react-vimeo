@@ -1,18 +1,30 @@
 language: node_js
-node_js:
-  - "stable"
-  - "10"
-  - "8"
-
-before_deploy:
-  - cd example && npm install && cd ..
-  - mkdir _deploy
-  - cp example/bundle.js example/index.html _deploy
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  local-dir: _deploy
-  on:
-    branch: master
-    node: stable
+os: linux
+dist: bionic
+jobs:
+  include:
+    - name: Test on stable Node.js and deploy example
+      node_js: stable
+      before_deploy:
+        - cd example && npm install && cd ..
+        - mkdir _deploy
+        - cp example/bundle.js example/index.html _deploy
+      deploy:
+        provider: pages
+        skip-cleanup: true
+        github-token: $GITHUB_TOKEN
+        local-dir: _deploy
+        on:
+          branch: master
+    - name: Test on Node.js 10
+      node_js: 10
+    - name: Test on Node.js 8
+      node_js: 8
+    - name: Test with React.js 15
+      node_js: stable
+      before_script:
+        - npm install react@15
+    - name: Test with React.js 0.14
+      node_js: stable
+      before_script:
+        - npm install react@0.14
