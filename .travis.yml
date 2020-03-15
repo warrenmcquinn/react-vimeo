@@ -5,15 +5,9 @@ jobs:
   include:
     - name: Test on stable Node.js
       node_js: stable
+    - name: Test on Node.js 12
+      node_js: 12
     - name: Test on Node.js 10
       node_js: 10
     - name: Test on Node.js 8
       node_js: 8
-    - name: Test with React.js 15
-      node_js: stable
-      before_script:
-        - npm install react@15 react-dom@15 react-test-renderer@15
-    - name: Test with React.js 0.14
-      node_js: stable
-      before_script:
-        - npm install react@0.14 react-dom@0.14 react-test-renderer@1
