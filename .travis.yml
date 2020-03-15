@@ -12,8 +12,8 @@ jobs:
     - name: Test with React.js 15
       node_js: stable
       before_script:
-        - npm install react@15 react-test-renderer@15
+        - npm install react@15 react-dom@15 react-test-renderer@15
     - name: Test with React.js 0.14
       node_js: stable
       before_script:
-        - npm install react@0.14 react-test-renderer@1
+        - npm install react@0.14 react-dom@0.14 react-test-renderer@1
