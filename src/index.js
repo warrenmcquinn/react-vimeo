@@ -289,7 +289,7 @@ if (process.env.NODE_ENV !== 'production') {
     /**
      * Enable playback rate controls (requires Vimeo PRO / Business account)
      */
-    speed: PropTypes.bool,
+    speed: PropTypes.bool, 
 
     // Events
     /* eslint-disable react/no-unused-prop-types */
